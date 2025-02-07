@@ -1,0 +1,1688 @@
+#N canvas 0 0 1792 1120 12;
+#X obj 20 100 cnv 15 100 900 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 120 100 cnv 15 769 900 empty empty empty 20 12 0 14 #e0e0e0
+#404040 0;
+#N canvas 0 22 1792 1120 subtractive 0;
+#X obj 544 923 lop~;
+#X obj 1350 530 vsl 15 128 50 1000 1 0 empty LowPass LopCutOff\ frequency\ (50-1000\ LOG)
+-65 -13 0 10 #fffb00 #000000 #000000 9762 1;
+#X obj 620 570 hsl 128 15 16.35 2093 1 0 empty PitchSUB Pitch\ (16.35-2093Hz)
+19 -9 0 10 #aa7942 #000000 #000000 7106 1;
+#X obj 544 843 phasor~;
+#X obj 700 1320 dac~;
+#X obj 356 1007 lop~;
+#X obj 356 926 phasor~;
+#X msg 510 420 261.63;
+#X msg 550 390 277.18;
+#X msg 600 420 293.66;
+#X msg 640 390 311.13;
+#X msg 690 420 329.63;
+#X msg 800 420 349.23;
+#X msg 850 400 369.99;
+#X msg 920 420 392;
+#X msg 1010 420 440;
+#X msg 1040 400 466.16;
+#X msg 1090 420 493.88;
+#X msg 1170 420 523.25;
+#X msg 950 400 415.3;
+#X obj 600 270 key;
+#X floatatom 720 270 5 0 0 0 - - -, f 5;
+#X obj 700 1280 *~;
+#X obj 1720 810 vsl 15 150 0 1 0 0 empty CarrierAmpSUB Amplitude -28
+-9 0 10 #00f900 #000000 #000000 14900 1;
+#X floatatom 1690 980 5 0 0 0 - - -, f 5;
+#N canvas 0 22 1792 1120 AttackRelease 0;
+#X obj 603 367 inlet;
+#X obj 655 367 inlet;
+#X obj 850 370 inlet;
+#X obj 660 430 f;
+#X obj 740 650 line~;
+#X obj 750 720 outlet~;
+#X msg 686 474 \$1;
+#X msg 870 430 0;
+#X obj 720 440 f;
+#X obj 960 420 f;
+#X obj 720 370 inlet;
+#X obj 960 360 inlet;
+#X obj 710 530 pack \$1 \$2;
+#X obj 850 520 pack \$1 \$2;
+#X connect 0 0 3 0;
+#X connect 1 0 3 1;
+#X connect 2 0 7 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 6 0 12 0;
+#X connect 7 0 13 0;
+#X connect 8 0 12 1;
+#X connect 9 0 13 1;
+#X connect 10 0 8 0;
+#X connect 11 0 9 0;
+#X connect 12 0 4 0;
+#X connect 13 0 4 0;
+#X restore 1760 1090 pd AttackRelease;
+#X obj 1732 1039 bng 25 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1820 1040 bng 25 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1780 810 vsl 15 150 0 1000 0 0 empty AttackSUB Attack -7 -9
+0 10 #ff40ff #000000 #000000 1490 1;
+#X obj 1900 810 vsl 15 150 0 1000 0 0 empty ReleaseSUB Release 0 -9
+0 10 #ff9300 #000000 #000000 4470 1;
+#X obj 356 886 *~ \$1;
+#X floatatom 356 847 5 0 0 0 - - -, f 5;
+#X floatatom 1760 980 5 0 0 0 - - -, f 5;
+#X floatatom 1830 980 5 0 0 0 - - -, f 5;
+#X obj 336 697 vsl 15 128 0 50 0 0 empty BeatSUB BeatFrequencies 0
+-9 0 10 #0433ff #000000 #000000 0 1;
+#X obj 490 360 sel 113;
+#X obj 540 340 sel 50;
+#X obj 590 360 sel 119;
+#X obj 630 340 sel 51;
+#X obj 690 360 sel 101;
+#X obj 790 360 sel 114;
+#X obj 900 360 sel 116;
+#X obj 840 340 sel 53;
+#X obj 950 340 sel 54;
+#X obj 1010 360 sel 121;
+#X obj 1040 340 sel 55, f 8;
+#X obj 1090 360 sel 117;
+#X obj 1170 360 sel 105;
+#X obj 560 50 key;
+#X floatatom 620 60 5 0 0 0 - - -, f 5;
+#X msg 473 226 523.25;
+#X msg 526 194 554.37;
+#X msg 592 226 587.33;
+#X msg 633 191 622.25;
+#X msg 693 228 659.25;
+#X msg 790 220 698.46;
+#X msg 840 200 739.99;
+#X msg 910 220 783.99;
+#X msg 940 200 830.61;
+#X msg 1000 220 880;
+#X msg 1030 200 932.33;
+#X msg 1080 220 987.77;
+#X msg 1160 220 1046.5;
+#X obj 449 166 sel 81;
+#X obj 518 138 sel 64;
+#X obj 577 168 sel 87;
+#X obj 632 140 sel 163;
+#X obj 697 164 sel 69;
+#X obj 780 160 sel 82;
+#X obj 830 140 sel 37;
+#X obj 890 160 sel 84;
+#X obj 940 140 sel 94;
+#X obj 1000 160 sel 89;
+#X obj 1030 140 sel 38, f 8;
+#X obj 1080 160 sel 85;
+#X obj 1160 160 sel 73;
+#X obj 1590 1290 vsl 15 128 10 5000 1 0 empty HighPass HipCutOff\ frequency\ (10-5000LOG)
+-76 -10 0 10 #fcfcfc #000000 #000000 4705 1;
+#X obj 356 1077 hip~;
+#X obj 544 1003 hip~;
+#X floatatom 1350 670 5 0 0 0 - - -, f 5;
+#X floatatom 1590 1440 5 0 0 0 - - -, f 5;
+#X obj 544 873 >~ 0.5;
+#X obj 356 966 >~ 0.5;
+#X obj 718 888 vsl 15 128 0.1 0.99 0 0 empty MODSquareWave modulate\ square\ wave\ pulse\ width
+0 -9 0 10 #ff2600 #000000 #000000 5708 1;
+#X floatatom 732 1031 5 0 0 0 - - -, f 5;
+#X obj 406 697 vradio 15 0 1 9 empty BeatRadioSUB empty 0 -8 0 10 #0433ff
+#000000 #000000 0;
+#X text 1079 707 This phasor controls the fundamental frequency of
+the synth \, i.e. which note it will produce.;
+#X text -218 1302 This phasor is mixed in with the other one and provides
+beat frequencies by duplicating the wave and multiplying the frequency
+either by an integer or float value.;
+#X text 50 590 This slider and radio object both control which harmonics/beat
+will be added by the second phasor.;
+#X text 690 30 This block \, driven by the 'key' object recieves the
+ASCII values for the higher octaves when shift is being held.;
+#X text 790 270 This block \, driven by the 'key' object recieves the
+ASCII values for the lower octaves.;
+#X text 1147 945 This modulates how long each square wave peak is compared
+to the total wavelength of one wave cycle. It is approximately a ratio
+of the trough of each wave to the total wavelength.;
+#X text 1554 514 This controls the low pass filter cuttoff frequency:
+the frequency above which most harmonics will be removed from the signal.
+;
+#X text 1620 1340 This controls the high pass filter cuttoff frequency:
+the frequency below which most harmonics will be removed from the signal.
+;
+#X text 760 520 This slider controls the frequency of the signal with
+a continuous value from 16.35Hz (C0) to 2093 (C7) [1];
+#X text 1150 310 Source [1] was used to determine which frequencies
+were required to produce each note.;
+#X obj 522 572 f;
+#X obj 981 652 delay \$1;
+#X obj 1150 620 f;
+#X obj 520 400 bng 15 250 50 0 empty c empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 550 360 bng 15 250 50 0 empty c# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 610 400 bng 15 250 50 0 empty d empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 660 360 bng 15 250 50 0 empty d# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 710 390 bng 15 250 50 0 empty e empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 810 390 bng 15 250 50 0 empty f empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 864 373 bng 15 250 50 0 empty f# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 930 390 bng 15 250 50 0 empty g empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 970 370 bng 15 250 50 0 empty g# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 1015 397 bng 15 250 50 0 empty a empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 1059 379 bng 15 250 50 0 empty a# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 1100 390 bng 15 250 50 0 empty b empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 1190 390 bng 15 250 50 0 empty hc empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 1060 630 +;
+#X obj 1840 810 vsl 15 150 0 2000 0 0 empty SustainSUB Sustain\ time
+-24 -9 0 10 #942192 #000000 #000000 2235 1;
+#X obj 810 600 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 2209 208 loadbang;
+#X obj 2354 244 bng 18 250 50 0 empty Default default\ settings 17
+7 0 10 #fcfcfc #000000 #000000;
+#X msg 2481 314 300;
+#X obj 2284 444 s MODSW;
+#X obj 2214 444 s HP;
+#X obj 2504 444 s LP;
+#X msg 2164 314 0;
+#X msg 2374 314 100;
+#X obj 2214 244 bng 15 250 50 0 empty ToggleSquare empty 17 7 0 10
+#fcfcfc #000000 #000000;
+#X text 550 1380 This "tabwrite" object writes the final audio output
+waveform to an array on the GUI which displays a visual representation
+of it.;
+#X obj 1530 174 mtof;
+#X obj 1944 334 qlist;
+#X msg 1804 304 read test.txt;
+#X obj 1864 194 bng 18 250 50 0 empty startdemo empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 2054 404 s BSUB;
+#X obj 2344 444 s CAMPSUB;
+#X obj 2424 444 s CATSUB;
+#X obj 2544 444 s CSUSSUB;
+#X obj 2614 444 s CRSUB;
+#X obj 1530 224 s PSUB;
+#X obj 1530 134 r pits;
+#X obj 2044 134 r bsub;
+#X obj 2164 134 r hp;
+#X obj 2214 134 r modsw;
+#X obj 2284 134 r campsub;
+#X obj 2364 134 r catsub;
+#X obj 2434 134 r lp;
+#X obj 2484 134 r csussub;
+#X obj 2574 134 r crsub;
+#X text 2175 866 This 'loadbang' sets the engine to a synth woodwind
+preset upon boot by sending messages to each of the sliders in the
+main GUI. There is also a bang attatched which recieves a message from
+the "default settings" bang in the GUI to reset all presets.;
+#X text 2114 74 Below are the recieve messages for the sequencer: messages
+are picked up by the text file read by qlist and are relayed to the
+sliders by the send messages underneath.;
+#X obj 2114 404 s BSUBR;
+#X obj 2094 134 r bsubr;
+#X msg 1954 294 read demo.txt;
+#X msg 1814 364 read stopdemo.txt;
+#X obj 1774 284 bng 18 250 50 0 empty stopdemo empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1864 264 delay 100;
+#X msg 1914 194 read demonotes.txt;
+#X obj 1904 144 bng 15 250 50 0 empty demonotes empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 1760 1120 This is an AttackRelease envolope which shapes the
+amplitude of the final sound. It builds on concepts taken from source
+[5];
+#X text -242 734 This area of the patch builds on concepts taken from
+source [6];
+#X text 170 260 This area of the patch builds on concepts taken from
+source [6];
+#X msg 1135 1140 1;
+#X msg 1175 1141 0;
+#X obj 714 1355 tabwrite~ \$0-Sub_oscope;
+#X obj 787 1303 metro 100;
+#X msg 2294 314 0.5;
+#X msg 2333 314 1;
+#X obj 1258 567 keyname;
+#X floatatom 1260 605 5 0 0 0 - - -, f 5;
+#X msg 1282 627;
+#N canvas 0 22 1792 1120 sustain_check_Subtractive 0;
+#X obj 641 199 keyup;
+#X floatatom 914 292 5 0 0 0 - - -, f 5;
+#X floatatom 663 400 5 0 0 0 - - -, f 5;
+#X obj 636 325 expr if ($f1 == $f2 \, 1 \, 0);
+#X obj 930 218 key;
+#X obj 595 420 sel 1;
+#X obj 552 646 outlet;
+#X floatatom 1261 291 5 0 0 0 - - -, f 5;
+#X obj 695 501 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 689 583 sel;
+#X obj 755 492 f;
+#X obj 661 610 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 677 540 f 1;
+#X obj 807 454 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X text 575 35 This if expression ensures that the keyup from a previous
+note \, released whilst the current note is sustained \, does not trigger
+the decay of the current note. So that decay is still triggered if
+shift is use to alter the ASCII value of the previous key whilst a
+note is playing \, there is a series of expr if based logic blocks
+which identifies these ASCII value pairs.;
+#X floatatom 875 360 5 0 0 0 - - -, f 5;
+#X floatatom 877 391 5 0 0 0 - - -, f 5;
+#X obj 969 388 expr if($f1==0 \, if($f2==0 \, 1 \, 0) \, 0);
+#X floatatom 877 391 5 0 0 0 - - -, f 5;
+#X floatatom 876 421 5 0 0 0 - - -, f 5;
+#X floatatom 878 543 5 0 0 0 - - -, f 5;
+#X floatatom 877 451 5 0 0 0 - - -, f 5;
+#X floatatom 877 482 5 0 0 0 - - -, f 5;
+#X floatatom 878 573 5 0 0 0 - - -, f 5;
+#X floatatom 879 635 5 0 0 0 - - -, f 5;
+#X floatatom 879 603 5 0 0 0 - - -, f 5;
+#X floatatom 877 513 5 0 0 0 - - -, f 5;
+#X floatatom 879 664 5 0 0 0 - - -, f 5;
+#X floatatom 879 693 5 0 0 0 - - -, f 5;
+#X floatatom 880 723 5 0 0 0 - - -, f 5;
+#X obj 967 357 expr if($f1==113 \, if($f2==81 \, 1 \, 0) \, 0);
+#X obj 969 388 expr if($f1==50 \, if($f2==64 \, 1 \, 0) \, 0);
+#X obj 968 418 expr if($f1==119 \, if($f2==87 \, 1 \, 0) \, 0);
+#X obj 969 448 expr if($f1==51 \, if($f2==163 \, 1 \, 0) \, 0);
+#X obj 969 479 expr if($f1==101 \, if($f2==69 \, 1 \, 0) \, 0);
+#X obj 969 510 expr if($f1==114 \, if($f2==82 \, 1 \, 0) \, 0);
+#X obj 969 540 expr if($f1==53 \, if($f2==37 \, 1 \, 0) \, 0);
+#X obj 970 570 expr if($f1==116 \, if($f2==84 \, 1 \, 0) \, 0);
+#X obj 971 600 expr if($f1==54 \, if($f2==94 \, 1 \, 0) \, 0);
+#X obj 971 632 expr if($f1==121 \, if($f2==89 \, 1 \, 0) \, 0);
+#X obj 971 661 expr if($f1==55 \, if($f2==38 \, 1 \, 0) \, 0);
+#X obj 971 690 expr if($f1==117 \, if($f2==85 \, 1 \, 0) \, 0);
+#X obj 972 720 expr if($f1==105 \, if($f2==73 \, 1 \, 0) \, 0);
+#X floatatom 881 752 5 0 0 0 - - -, f 5;
+#X floatatom 883 780 5 0 0 0 - - -, f 5;
+#X floatatom 882 807 5 0 0 0 - - -, f 5;
+#X floatatom 882 836 5 0 0 0 - - -, f 5;
+#X obj 972 749 expr if($f1==57 \, if($f2==40 \, 1 \, 0) \, 0);
+#X obj 974 777 expr if($f1==111 \, if($f2==79 \, 1 \, 0) \, 0);
+#X obj 973 804 expr if($f1==48 \, if($f2==41 \, 1 \, 0) \, 0);
+#X obj 973 833 expr if($f1==112 \, if($f2==80 \, 1 \, 0) \, 0);
+#X obj 745 372 loadbang;
+#X msg 754 407 0;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 1 0 30 0;
+#X connect 1 0 42 0;
+#X connect 1 0 41 0;
+#X connect 1 0 40 0;
+#X connect 1 0 39 0;
+#X connect 1 0 38 0;
+#X connect 1 0 37 0;
+#X connect 1 0 36 0;
+#X connect 1 0 35 0;
+#X connect 1 0 34 0;
+#X connect 1 0 33 0;
+#X connect 1 0 32 0;
+#X connect 1 0 31 0;
+#X connect 1 0 17 0;
+#X connect 1 0 50 0;
+#X connect 1 0 49 0;
+#X connect 1 0 48 0;
+#X connect 1 0 47 0;
+#X connect 3 0 2 0;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X connect 4 0 3 1;
+#X connect 5 0 6 0;
+#X connect 7 0 30 1;
+#X connect 7 0 42 1;
+#X connect 7 0 41 1;
+#X connect 7 0 40 1;
+#X connect 7 0 39 1;
+#X connect 7 0 38 1;
+#X connect 7 0 37 1;
+#X connect 7 0 36 1;
+#X connect 7 0 35 1;
+#X connect 7 0 34 1;
+#X connect 7 0 33 1;
+#X connect 7 0 32 1;
+#X connect 7 0 31 1;
+#X connect 7 0 17 1;
+#X connect 7 0 50 1;
+#X connect 7 0 49 1;
+#X connect 7 0 48 1;
+#X connect 7 0 47 1;
+#X connect 8 0 12 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 1;
+#X connect 10 0 8 0;
+#X connect 11 0 6 0;
+#X connect 12 0 9 0;
+#X connect 13 0 10 0;
+#X connect 15 0 13 0;
+#X connect 16 0 13 0;
+#X connect 17 0 16 0;
+#X connect 18 0 13 0;
+#X connect 19 0 13 0;
+#X connect 20 0 13 0;
+#X connect 21 0 13 0;
+#X connect 22 0 13 0;
+#X connect 23 0 13 0;
+#X connect 24 0 13 0;
+#X connect 25 0 13 0;
+#X connect 26 0 13 0;
+#X connect 27 0 13 0;
+#X connect 28 0 13 0;
+#X connect 29 0 13 0;
+#X connect 30 0 15 0;
+#X connect 31 0 18 0;
+#X connect 32 0 19 0;
+#X connect 33 0 21 0;
+#X connect 34 0 22 0;
+#X connect 35 0 26 0;
+#X connect 36 0 20 0;
+#X connect 37 0 23 0;
+#X connect 38 0 25 0;
+#X connect 39 0 24 0;
+#X connect 40 0 27 0;
+#X connect 41 0 28 0;
+#X connect 42 0 29 0;
+#X connect 43 0 13 0;
+#X connect 44 0 13 0;
+#X connect 45 0 13 0;
+#X connect 46 0 13 0;
+#X connect 47 0 43 0;
+#X connect 48 0 44 0;
+#X connect 49 0 45 0;
+#X connect 50 0 46 0;
+#X connect 51 0 52 0;
+#X connect 52 0 13 0;
+#X restore 1984 1002 pd sustain_check_Subtractive;
+#X obj 518 114 sel 57;
+#X obj 574 145 sel 111;
+#X obj 630 117 sel 48;
+#X obj 693 138 sel 112;
+#X msg 1212 188 1108.7;
+#X msg 1259 215 1174.7;
+#X msg 1302 188 1244.5;
+#X msg 1341 215 1318.5;
+#X obj 1206 127 sel 40;
+#X obj 1259 156 sel 79;
+#X obj 1304 125 sel 41;
+#X obj 1355 154 sel 80;
+#X obj 535 173 bng 15 250 50 0 empty hc# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 599 204 bng 15 250 50 0 empty hd empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 706 203 bng 15 250 50 0 empty he empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 640 167 bng 15 250 50 0 empty hd# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X msg 2234 314 100;
+#X msg 2427 314 500;
+#N canvas 0 22 1792 1120 pulse_width_modulation_LFO 0;
+#X obj 808 559 snapshot~;
+#X floatatom 788 669 5 0 0 0 - - -, f 5;
+#X obj 988 509 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 988 479 metro;
+#X obj 1068 339 tgl 30 0 empty pwm_toggle empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 748 799 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 2740 1;
+#X floatatom 1097 427 5 0 0 0 - pwm_resolution -, f 5;
+#X obj 638 220 vsl 15 128 0.03 30000 1 0 empty pwm_freq Modulation\ frequency
+23 40 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 768 319 osc~ 1;
+#X obj 824 438 +~ 0.5;
+#X obj 798 369 *~ 0.4;
+#X obj 908 179 vsl 15 128 0.01 0.49 0 0 empty pwm_depth Modulation\ depth
+-37 -10 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 714 889 outlet;
+#X obj 393 168 vsl 15 128 0.03 30000 1 0 empty unity_lfo_freq Modulation\ frequency\ -pwm\ and\ noise
+23 40 0 10 #fcfcfc #000000 #000000 0 1;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 12 0;
+#X connect 6 0 3 1;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 9 0 0 0;
+#X connect 10 0 9 0;
+#X connect 11 0 10 1;
+#X connect 13 0 7 0;
+#X restore 685 835 pd pulse_width_modulation_LFO;
+#N canvas 0 22 1792 1120 noise_mix 0;
+#X obj 386 448 noise~;
+#X obj 653 579 *~;
+#X obj 772 445 vsl 15 128 0.01 1 0 0 empty noise_mix noise_mix_level
+20 63 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 494 752 outlet~;
+#N canvas 671 22 450 300 noise_filter_LFO 0;
+#X obj 800 602 snapshot~;
+#X floatatom 788 669 5 0 0 0 - - -, f 5;
+#X obj 988 509 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 988 479 metro;
+#X obj 1068 339 tgl 30 0 empty noise_lfo_toggle empty 17 7 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 748 799 hsl 128 15 0 10000 0 0 empty empty empty -2 -8 0 10
+#fcfcfc #000000 #000000 89 1;
+#X floatatom 1097 427 5 0 0 0 - noise_lfo_resolution -, f 5;
+#X obj 638 220 vsl 15 128 0.03 30000 1 0 empty noise_lfo_freq Modulation\ frequency
+23 40 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 761 407 osc~ 1;
+#X obj 791 456 *~ 0.4;
+#X obj 908 204 vsl 15 128 0.01 0.49 0 0 empty noise_lfo_depth Modulation\ depth
+-37 -10 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 688 971 outlet;
+#X obj 833 509 +~ 0.5;
+#X floatatom 790 859 5 0 0 0 - - -, f 5;
+#X obj 808 915 - 99;
+#X obj 761 743 * 5000;
+#X obj 302 178 vsl 15 128 0.03 30000 1 0 empty unity_lfo_freq Modulation\ frequency\ -pwm\ and\ noise
+23 40 0 10 #fcfcfc #000000 #000000 0 1;
+#X connect 0 0 1 0;
+#X connect 1 0 15 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 13 0;
+#X connect 6 0 3 1;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 10 0 9 1;
+#X connect 12 0 0 0;
+#X connect 13 0 14 0;
+#X connect 14 0 11 0;
+#X connect 15 0 5 0;
+#X connect 16 0 7 0;
+#X restore 530 310 pd noise_filter_LFO;
+#X obj 538 476 lop~;
+#X floatatom 587 417 5 0 0 0 - - -, f 5;
+#X obj 675 372 vsl 15 128 100 9000 0 0 empty noise_lop_cutoff Noise\ lop\ cutoff
+0 -9 0 10 #fcfcfc #000000 #000000 0 1;
+#X connect 0 0 5 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 1;
+#X connect 4 0 6 0;
+#X connect 5 0 1 0;
+#X connect 6 0 5 1;
+#X connect 7 0 5 1;
+#X restore 412 1223 pd noise_mix;
+#X obj 2014 642 s PWM_TOG;
+#X obj 2049 672 s PWM_FREQ;
+#X obj 2096 641 s PWM_DEPTH;
+#X obj 2143 675 s PWM_RES;
+#X obj 2188 641 s UNITY_FREQ;
+#X obj 2321 640 s NOISE_MIX;
+#X obj 2349 673 s NOISE_CUTOFF;
+#X obj 2466 675 s NOISE_FREQ;
+#X obj 2416 641 s NOISE_TOG;
+#X obj 2407 705 s NOISE_DEPTH;
+#X obj 2513 642 s NOISE_RES;
+#X obj 2222 573 bng 22 250 50 0 empty Crazy crazy\ settings 25 10 0
+10 #fcfcfc #000000 #000000;
+#X msg 2109 592 1;
+#X msg 2155 608 0.333;
+#X msg 2251 609 20;
+#X msg 2207 612 10;
+#X msg 2317 613 0.6;
+#X msg 2341 701 0.49;
+#X msg 2362 398 0.8;
+#X msg 2196 507 80;
+#X msg 2484 513 800;
+#X msg 1977 431 42.42;
+#X connect 0 0 78 0;
+#X connect 1 0 0 1;
+#X connect 1 0 79 0;
+#X connect 1 0 5 1;
+#X connect 2 0 3 0;
+#X connect 2 0 26 0;
+#X connect 2 0 30 0;
+#X connect 2 0 114 0;
+#X connect 3 0 81 0;
+#X connect 5 0 77 0;
+#X connect 6 0 82 0;
+#X connect 7 0 96 0;
+#X connect 8 0 96 0;
+#X connect 9 0 96 0;
+#X connect 10 0 96 0;
+#X connect 11 0 96 0;
+#X connect 12 0 96 0;
+#X connect 13 0 96 0;
+#X connect 14 0 96 0;
+#X connect 15 0 96 0;
+#X connect 16 0 96 0;
+#X connect 17 0 96 0;
+#X connect 18 0 96 0;
+#X connect 19 0 96 0;
+#X connect 20 0 21 0;
+#X connect 20 0 35 0;
+#X connect 20 0 36 0;
+#X connect 20 0 37 0;
+#X connect 20 0 38 0;
+#X connect 20 0 39 0;
+#X connect 20 0 40 0;
+#X connect 20 0 41 0;
+#X connect 20 0 42 0;
+#X connect 20 0 43 0;
+#X connect 20 0 44 0;
+#X connect 20 0 45 0;
+#X connect 20 0 46 0;
+#X connect 20 0 47 0;
+#X connect 22 0 4 0;
+#X connect 22 0 4 1;
+#X connect 22 0 159 0;
+#X connect 23 0 24 0;
+#X connect 23 0 25 1;
+#X connect 25 0 22 1;
+#X connect 26 0 25 0;
+#X connect 27 0 25 3;
+#X connect 28 0 25 2;
+#X connect 28 0 32 0;
+#X connect 28 0 98 0;
+#X connect 29 0 25 4;
+#X connect 29 0 33 0;
+#X connect 30 0 6 0;
+#X connect 31 0 30 1;
+#X connect 34 0 31 0;
+#X connect 35 0 7 0;
+#X connect 36 0 8 0;
+#X connect 37 0 9 0;
+#X connect 38 0 10 0;
+#X connect 39 0 11 0;
+#X connect 40 0 12 0;
+#X connect 41 0 14 0;
+#X connect 42 0 13 0;
+#X connect 43 0 19 0;
+#X connect 44 0 15 0;
+#X connect 45 0 16 0;
+#X connect 46 0 17 0;
+#X connect 47 0 18 0;
+#X connect 48 0 49 0;
+#X connect 48 0 63 0;
+#X connect 48 0 64 0;
+#X connect 48 0 65 0;
+#X connect 48 0 66 0;
+#X connect 48 0 67 0;
+#X connect 48 0 68 0;
+#X connect 48 0 69 0;
+#X connect 48 0 70 0;
+#X connect 48 0 71 0;
+#X connect 48 0 72 0;
+#X connect 48 0 73 0;
+#X connect 48 0 74 0;
+#X connect 48 0 75 0;
+#X connect 48 0 167 0;
+#X connect 48 0 168 0;
+#X connect 48 0 169 0;
+#X connect 48 0 170 0;
+#X connect 48 0 175 0;
+#X connect 48 0 178 0;
+#X connect 48 0 177 0;
+#X connect 48 0 176 0;
+#X connect 50 0 96 0;
+#X connect 51 0 96 0;
+#X connect 52 0 96 0;
+#X connect 53 0 96 0;
+#X connect 54 0 96 0;
+#X connect 55 0 96 0;
+#X connect 56 0 96 0;
+#X connect 57 0 96 0;
+#X connect 58 0 96 0;
+#X connect 59 0 96 0;
+#X connect 60 0 96 0;
+#X connect 61 0 96 0;
+#X connect 62 0 96 0;
+#X connect 63 0 50 0;
+#X connect 64 0 51 0;
+#X connect 65 0 52 0;
+#X connect 66 0 53 0;
+#X connect 67 0 54 0;
+#X connect 68 0 55 0;
+#X connect 69 0 56 0;
+#X connect 70 0 57 0;
+#X connect 71 0 58 0;
+#X connect 72 0 59 0;
+#X connect 73 0 60 0;
+#X connect 74 0 61 0;
+#X connect 75 0 62 0;
+#X connect 76 0 78 1;
+#X connect 76 0 80 0;
+#X connect 76 0 77 1;
+#X connect 77 0 22 0;
+#X connect 78 0 22 0;
+#X connect 81 0 0 0;
+#X connect 82 0 5 0;
+#X connect 83 0 82 1;
+#X connect 83 0 81 1;
+#X connect 83 0 84 0;
+#X connect 85 0 31 0;
+#X connect 96 0 30 0;
+#X connect 96 0 3 0;
+#X connect 96 0 26 0;
+#X connect 97 0 27 0;
+#X connect 98 0 112 1;
+#X connect 99 0 97 0;
+#X connect 99 0 7 0;
+#X connect 100 0 97 0;
+#X connect 100 0 8 0;
+#X connect 101 0 97 0;
+#X connect 101 0 9 0;
+#X connect 102 0 97 0;
+#X connect 102 0 10 0;
+#X connect 103 0 97 0;
+#X connect 103 0 11 0;
+#X connect 104 0 97 0;
+#X connect 104 0 12 0;
+#X connect 105 0 97 0;
+#X connect 105 0 13 0;
+#X connect 106 0 97 0;
+#X connect 106 0 14 0;
+#X connect 107 0 97 0;
+#X connect 107 0 19 0;
+#X connect 108 0 97 0;
+#X connect 108 0 15 0;
+#X connect 109 0 97 0;
+#X connect 109 0 16 0;
+#X connect 110 0 97 0;
+#X connect 110 0 17 0;
+#X connect 111 0 97 0;
+#X connect 111 0 18 0;
+#X connect 112 0 97 1;
+#X connect 113 0 112 0;
+#X connect 114 0 97 0;
+#X connect 115 0 161 0;
+#X connect 115 0 122 0;
+#X connect 115 0 117 0;
+#X connect 115 0 183 0;
+#X connect 115 0 121 0;
+#X connect 115 0 148 0;
+#X connect 115 0 157 0;
+#X connect 115 0 162 0;
+#X connect 115 0 184 0;
+#X connect 116 0 161 0;
+#X connect 116 0 122 0;
+#X connect 116 0 117 0;
+#X connect 116 0 183 0;
+#X connect 116 0 121 0;
+#X connect 116 0 157 0;
+#X connect 116 0 162 0;
+#X connect 116 0 184 0;
+#X connect 117 0 132 0;
+#X connect 117 0 133 0;
+#X connect 121 0 129 0;
+#X connect 121 0 189 0;
+#X connect 121 0 197 0;
+#X connect 121 0 195 0;
+#X connect 121 0 194 0;
+#X connect 121 0 196 0;
+#X connect 121 0 193 0;
+#X connect 121 0 192 0;
+#X connect 121 0 191 0;
+#X connect 121 0 190 0;
+#X connect 121 0 188 0;
+#X connect 121 0 187 0;
+#X connect 121 0 146 0;
+#X connect 122 0 131 0;
+#X connect 123 0 161 0;
+#X connect 125 0 134 0;
+#X connect 127 0 126 0;
+#X connect 128 0 148 0;
+#X connect 128 0 151 0;
+#X connect 135 0 125 0;
+#X connect 136 0 129 0;
+#X connect 137 0 119 0;
+#X connect 138 0 118 0;
+#X connect 139 0 130 0;
+#X connect 140 0 131 0;
+#X connect 141 0 120 0;
+#X connect 142 0 132 0;
+#X connect 143 0 133 0;
+#X connect 147 0 146 0;
+#X connect 147 0 129 0;
+#X connect 148 0 126 0;
+#X connect 149 0 126 0;
+#X connect 150 0 149 0;
+#X connect 150 0 151 0;
+#X connect 151 0 126 0;
+#X connect 152 0 126 0;
+#X connect 153 0 151 0;
+#X connect 153 0 152 0;
+#X connect 157 0 160 0;
+#X connect 158 0 160 0;
+#X connect 160 0 159 0;
+#X connect 161 0 118 0;
+#X connect 162 0 130 0;
+#X connect 163 0 164 0;
+#X connect 163 0 165 0;
+#X connect 166 0 27 0;
+#X connect 167 0 51 0;
+#X connect 168 0 52 0;
+#X connect 169 0 53 0;
+#X connect 170 0 54 0;
+#X connect 171 0 96 0;
+#X connect 172 0 96 0;
+#X connect 173 0 96 0;
+#X connect 174 0 96 0;
+#X connect 175 0 171 0;
+#X connect 176 0 172 0;
+#X connect 177 0 173 0;
+#X connect 178 0 174 0;
+#X connect 179 0 97 0;
+#X connect 179 0 51 0;
+#X connect 180 0 97 0;
+#X connect 180 0 52 0;
+#X connect 181 0 97 0;
+#X connect 181 0 54 0;
+#X connect 182 0 97 0;
+#X connect 182 0 53 0;
+#X connect 183 0 119 0;
+#X connect 184 0 120 0;
+#X connect 185 0 83 0;
+#X connect 186 0 22 0;
+#X connect 198 0 199 0;
+#X connect 198 0 200 0;
+#X connect 198 0 201 0;
+#X connect 198 0 202 0;
+#X connect 198 0 203 0;
+#X connect 198 0 204 0;
+#X connect 198 0 205 0;
+#X connect 198 0 122 0;
+#X connect 198 0 117 0;
+#X connect 198 0 206 0;
+#X connect 198 0 207 0;
+#X connect 198 0 208 0;
+#X connect 199 0 187 0;
+#X connect 199 0 195 0;
+#X connect 199 0 197 0;
+#X connect 200 0 189 0;
+#X connect 201 0 190 0;
+#X connect 202 0 191 0;
+#X connect 203 0 192 0;
+#X connect 204 0 196 0;
+#X connect 205 0 130 0;
+#X connect 206 0 119 0;
+#X connect 207 0 120 0;
+#X connect 208 0 129 0;
+#X restore 410 100 pd subtractive synth engine;
+#X obj 950 100 cnv 15 689 900 empty empty empty 20 12 0 14 #e0e0e0
+#404040 0;
+#N canvas 0 22 1792 1120 FM 0;
+#X obj 720 670 hsl 128 15 16.35 2093 0 0 empty Pitch Pitch\ (16.35-2093Hz)
+19 -9 0 10 #aa7942 #000000 #000000 3100 1;
+#X msg 390 470 261.63;
+#X msg 430 440 277.18;
+#X msg 480 470 293.66;
+#X msg 520 440 311.13;
+#X msg 570 470 329.63;
+#X msg 680 470 349.23;
+#X msg 730 450 369.99;
+#X msg 800 470 392;
+#X msg 890 470 440;
+#X msg 920 450 466.16;
+#X msg 970 470 493.88;
+#X msg 1050 470 523.25;
+#X msg 830 450 415.3;
+#X obj 480 320 key;
+#X floatatom 600 320 5 0 0 0 - - -, f 5;
+#X obj 440 100 key;
+#X floatatom 500 110 5 0 0 0 - - -, f 5;
+#X text 670 320 This block \, driven by the 'key' object recieves the
+ASCII values for the lower octaves;
+#X msg 357 273 523.25;
+#X msg 416 241 554.37;
+#X msg 462 273 587.33;
+#X msg 512 240 622.25;
+#X msg 560 274 659.25;
+#X msg 670 270 698.46;
+#X msg 720 250 739.99;
+#X msg 790 270 783.99;
+#X msg 820 250 830.61;
+#X msg 880 270 880;
+#X msg 910 250 932.33;
+#X msg 960 270 987.77;
+#X msg 1040 270 1046.5;
+#X text 570 80 This block \, driven by the 'key' object recieves the
+ASCII values for the higher octaves when shift is being held;
+#X obj 1020 860 vsl 15 128 0 8000 0 0 empty ModAmp Modular\ Amp 0 -9
+0 10 #00fdff #000000 #000000 2381 1;
+#X obj 790 1070 osc~;
+#X obj 870 1110 *~;
+#X obj 870 1170 +~;
+#X obj 920 1220 osc~;
+#X obj 940 1300 *~;
+#X obj 940 1370 dac~;
+#X floatatom 1020 1010 5 0 0 0 - - -, f 5;
+#X floatatom 400 1010 5 0 0 0 - - -, f 5;
+#X floatatom 950 1180 5 0 0 0 - - -, f 5;
+#X obj 780 1040 *~ \$1;
+#X obj 400 980 hsl 128 15 0 8000 0 0 empty C:Mratioslider Carrier:modulating\ frequency\ ratio
+-2 -8 0 10 #0433ff #000000 #000000 2 1;
+#X obj 1660 670 vsl 15 150 0 1 0 0 empty CarrierAmp Amplitude -20 -9
+0 10 #00f900 #000000 #000000 7450 1;
+#X floatatom 1630 840 5 0 0 0 - - -, f 5;
+#N canvas 0 22 1792 1120 AttackRelease 0;
+#X obj 603 367 inlet;
+#X obj 655 367 inlet;
+#X obj 850 370 inlet;
+#X obj 660 430 f;
+#X obj 740 650 line~;
+#X obj 750 720 outlet~;
+#X msg 686 474 \$1;
+#X msg 870 430 0;
+#X obj 720 440 f;
+#X obj 960 420 f;
+#X obj 720 370 inlet;
+#X obj 960 360 inlet;
+#X obj 710 530 pack \$1 \$2;
+#X obj 850 520 pack \$1 \$2;
+#X connect 0 0 3 0;
+#X connect 1 0 3 1;
+#X connect 2 0 7 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 6 0 12 0;
+#X connect 7 0 13 0;
+#X connect 8 0 12 1;
+#X connect 9 0 13 1;
+#X connect 10 0 8 0;
+#X connect 11 0 9 0;
+#X connect 12 0 4 0;
+#X connect 13 0 4 0;
+#X restore 1700 950 pd AttackRelease;
+#X obj 1760 900 bng 25 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1730 670 vsl 15 150 0 1000 0 0 empty Attack Attack -11 -9 0
+10 #ff40ff #000000 #000000 74 1;
+#X obj 1850 670 vsl 15 150 0 1000 0 0 empty Release Release 0 -9 0
+10 #ff9300 #000000 #000000 4470 1;
+#X floatatom 1700 840 5 0 0 0 - - -, f 5;
+#X floatatom 1770 840 5 0 0 0 - - -, f 5;
+#X obj 370 410 sel 122;
+#X obj 420 390 sel 115;
+#X obj 470 410 sel 120;
+#X obj 510 390 sel 100;
+#X obj 570 410 sel 99;
+#X obj 670 410 sel 118;
+#X obj 720 390 sel 103;
+#X obj 780 410 sel 98;
+#X obj 830 390 sel 104;
+#X obj 890 410 sel 110;
+#X obj 920 390 sel 106, f 8;
+#X obj 970 410 sel 109;
+#X obj 1050 410 sel 44;
+#X obj 345 214 sel 90;
+#X obj 403 192 sel 83;
+#X obj 460 217 sel 88;
+#X obj 513 197 sel 68;
+#X obj 567 215 sel 67;
+#X obj 660 210 sel 86;
+#X obj 710 190 sel 71;
+#X obj 770 210 sel 66;
+#X obj 820 190 sel 72;
+#X obj 880 210 sel 78;
+#X obj 910 190 sel 74, f 8;
+#X obj 960 210 sel 77;
+#X obj 1031 211 sel 60;
+#X obj 400 1040 vradio 15 0 0 20 empty C:Mratioradio empty 0 -8 0
+10 #fffb00 #000000 #000000 1;
+#X text 1283 1178 The top-most oscillator is the modulating oscillator
+\, and the bottom one is the carrier oscillator.[8];
+#X text 1287 907 This slider controls the amplitude of the modular
+oscilator: this determines the maximum and minimum frequencies that
+will be added on to the carrier frequency with each period of the modular
+oscillator.[8];
+#X text -46 685 This slider \, and the radio buttons below it \, control
+what factor you multiply the carrier frequency by to get the modular
+frequency. This maintains a consistent ratio between carrier and modular
+frequencies so that the tambre of each note can be consistent [8];
+#X obj 1544 239 loadbang;
+#X msg 1590 330 0.5;
+#X msg 1520 330 1500;
+#X msg 1670 330 5;
+#X obj 1640 260 bng 18 250 50 0 empty Default default\ settings 19
+7 0 10 #fcfcfc #000000 #000000;
+#X obj 1647 900 bng 24 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 400 440 bng 15 250 50 0 empty C empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 440 420 bng 15 250 50 0 empty C# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 490 440 bng 15 250 50 0 empty D empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 540 420 bng 15 250 50 0 empty D# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 610 440 bng 15 250 50 0 empty E empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 700 440 bng 15 250 50 0 empty F empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 740 420 bng 15 250 50 0 empty F# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 800 440 bng 15 250 50 0 empty G empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 860 420 bng 15 250 50 0 empty G# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 900 440 bng 15 250 50 0 empty A empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 950 420 bng 15 250 50 0 empty A# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 1000 440 bng 15 250 50 0 empty B empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 1071 440 bng 15 250 50 0 empty HC empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 430 680 f;
+#X obj 1240 600 f;
+#X msg 1770 330 300;
+#X floatatom 480 1200 5 0 0 0 - - -, f 5;
+#X floatatom 770 730 5 0 0 0 - - -, f 5;
+#X msg 1450 330 1;
+#X obj 1590 460 s MODA;
+#X obj 1380 460 s C:MODFREQ;
+#X obj 1670 460 s CAMP;
+#X obj 1770 460 s CAT;
+#X obj 2010 460 s CR;
+#X obj 1070 630 +;
+#X obj 1790 670 vsl 15 150 0 2000 0 0 empty Sustain Sustain\ time -21
+-9 0 10 #942192 #000000 #000000 2235 1;
+#X obj 1850 460 s CSUS;
+#X obj 946 680 delay;
+#X obj 870 660 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 1317 1308 This "tabwrite" object writes the final audio output
+waveform to an array on the GUI which displays a visual representation
+of it.;
+#X obj 1330 206 mtof;
+#X obj 1330 250 s P;
+#X obj 1330 160 r pit;
+#X obj 1380 160 r c:mf;
+#X obj 1520 160 r moda;
+#X obj 1590 160 r camp;
+#X obj 1660 160 r cat;
+#X obj 1730 160 r csus;
+#X obj 1800 160 r cr;
+#X obj 1480 460 s C:MODFREQR;
+#X obj 1440 160 r c:mfr;
+#X text 1700 980 This is an AttackRelease envolope which shapes the
+amplitude of the final sound. It builds on conepts taken from source
+[5];
+#X text 30 320 This area of the patch builds on concepts taken from
+source [6];
+#X text 1277 1064 This area of the patch builds on concepts taken from
+source [8];
+#X text 1918 272 <-This loadbang loads the synth with a brass preset
+upon boot. The bang recieves a signal from the "Default settings" button
+on the GUI to set this preset too. It uses message objects which are
+sent to the sliders in the GUI. It also activates a message which turns
+the audio dsp on.;
+#X msg 1845 312 \; pd dsp 1;
+#X obj 986 1347 tabwrite~ \$0-FM_oscope;
+#X msg 1138 1262 1;
+#X msg 1192 1260 0;
+#X obj 1111 1308 metro 100;
+#N canvas 0 22 1792 1120 sustain_check_FM 0;
+#X obj 635 206 keyup;
+#X floatatom 914 292 5 0 0 0 - - -, f 5;
+#X floatatom 663 400 5 0 0 0 - - -, f 5;
+#X obj 634 309 expr if ($f1 == $f2 \, 1 \, 0);
+#X obj 1032 204 key;
+#X obj 595 420 sel 1;
+#X obj 552 646 outlet;
+#X floatatom 1261 291 5 0 0 0 - - -, f 5;
+#X floatatom 871 346 5 0 0 0 - - -, f 5;
+#X obj 695 501 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 689 583 sel;
+#X obj 755 492 f;
+#X obj 661 610 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 677 540 f 1;
+#X obj 963 346 expr if($f1==122 \, if($f2==90 \, 1 \, 0) \, 0);
+#X obj 807 454 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 963 369 expr if($f1==115 \, if($f2==83 \, 1 \, 0) \, 0);
+#X floatatom 871 369 5 0 0 0 - - -, f 5;
+#X text 575 54 This if expression ensures that the keyup from a previous
+note \, released whilst the current note is sustained \, does not trigger
+the decay of the current note. So that decay is still triggered if
+shift is use to alter the ASCII value of the previous key whilst a
+note is playing \, there is a series of expr if based logic blocks
+which identifies these ASCII value pairs.;
+#X floatatom 871 404 5 0 0 0 - - -, f 5;
+#X floatatom 871 427 5 0 0 0 - - -, f 5;
+#X floatatom 871 461 5 0 0 0 - - -, f 5;
+#X floatatom 871 484 5 0 0 0 - - -, f 5;
+#X floatatom 873 520 5 0 0 0 - - -, f 5;
+#X floatatom 873 543 5 0 0 0 - - -, f 5;
+#X floatatom 873 579 5 0 0 0 - - -, f 5;
+#X floatatom 873 602 5 0 0 0 - - -, f 5;
+#X floatatom 873 633 5 0 0 0 - - -, f 5;
+#X floatatom 873 656 5 0 0 0 - - -, f 5;
+#X floatatom 873 689 5 0 0 0 - - -, f 5;
+#X floatatom 880 798 5 0 0 0 - - -, f 5;
+#X obj 963 404 expr if($f1==120 \, if($f2==88 \, 1 \, 0) \, 0);
+#X obj 963 427 expr if($f1==100 \, if($f2==68 \, 1 \, 0) \, 0);
+#X obj 963 461 expr if($f1==99 \, if($f2==67 \, 1 \, 0) \, 0);
+#X obj 963 484 expr if($f1==118 \, if($f2==86 \, 1 \, 0) \, 0);
+#X obj 965 520 expr if($f1==103 \, if($f2==71 \, 1 \, 0) \, 0);
+#X obj 965 543 expr if($f1==98 \, if($f2==66 \, 1 \, 0) \, 0);
+#X obj 965 579 expr if($f1==104 \, if($f2==72 \, 1 \, 0) \, 0);
+#X obj 965 602 expr if($f1==110 \, if($f2==78 \, 1 \, 0) \, 0);
+#X obj 965 633 expr if($f1==106 \, if($f2==74 \, 1 \, 0) \, 0);
+#X obj 965 656 expr if($f1==109 \, if($f2==77 \, 1 \, 0) \, 0);
+#X obj 965 689 expr if($f1==44 \, if($f2==60 \, 1 \, 0) \, 0);
+#X floatatom 876 721 5 0 0 0 - - -, f 5;
+#X floatatom 877 746 5 0 0 0 - - -, f 5;
+#X floatatom 877 767 5 0 0 0 - - -, f 5;
+#X obj 968 718 expr if($f1==108 \, if($f2==76 \, 1 \, 0) \, 0);
+#X obj 969 743 expr if($f1==46 \, if($f2==62 \, 1 \, 0) \, 0);
+#X obj 969 764 expr if($f1==59 \, if($f2==58 \, 1 \, 0) \, 0);
+#X obj 972 795 expr if($f1==47 \, if($f2==63 \, 1 \, 0) \, 0);
+#X obj 570 544 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 743 358 loadbang;
+#X msg 757 402 0;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 1 0 14 0;
+#X connect 1 0 41 0;
+#X connect 1 0 40 0;
+#X connect 1 0 39 0;
+#X connect 1 0 38 0;
+#X connect 1 0 37 0;
+#X connect 1 0 36 0;
+#X connect 1 0 35 0;
+#X connect 1 0 34 0;
+#X connect 1 0 33 0;
+#X connect 1 0 32 0;
+#X connect 1 0 31 0;
+#X connect 1 0 16 0;
+#X connect 1 0 48 0;
+#X connect 1 0 47 0;
+#X connect 1 0 46 0;
+#X connect 1 0 45 0;
+#X connect 3 0 2 0;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X connect 4 0 3 1;
+#X connect 5 0 49 0;
+#X connect 7 0 14 1;
+#X connect 7 0 41 1;
+#X connect 7 0 40 1;
+#X connect 7 0 39 1;
+#X connect 7 0 38 1;
+#X connect 7 0 37 1;
+#X connect 7 0 36 1;
+#X connect 7 0 35 1;
+#X connect 7 0 34 1;
+#X connect 7 0 33 1;
+#X connect 7 0 32 1;
+#X connect 7 0 31 1;
+#X connect 7 0 16 1;
+#X connect 7 0 48 1;
+#X connect 7 0 47 1;
+#X connect 7 0 46 1;
+#X connect 7 0 45 1;
+#X connect 8 0 15 0;
+#X connect 9 0 13 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 1;
+#X connect 11 0 9 0;
+#X connect 12 0 6 0;
+#X connect 13 0 10 0;
+#X connect 14 0 8 0;
+#X connect 15 0 11 0;
+#X connect 16 0 17 0;
+#X connect 17 0 15 0;
+#X connect 19 0 15 0;
+#X connect 20 0 15 0;
+#X connect 21 0 15 0;
+#X connect 22 0 15 0;
+#X connect 23 0 15 0;
+#X connect 24 0 15 0;
+#X connect 25 0 15 0;
+#X connect 26 0 15 0;
+#X connect 27 0 15 0;
+#X connect 28 0 15 0;
+#X connect 29 0 15 0;
+#X connect 30 0 15 0;
+#X connect 31 0 19 0;
+#X connect 32 0 20 0;
+#X connect 33 0 21 0;
+#X connect 34 0 22 0;
+#X connect 35 0 23 0;
+#X connect 36 0 24 0;
+#X connect 37 0 25 0;
+#X connect 38 0 26 0;
+#X connect 39 0 27 0;
+#X connect 40 0 28 0;
+#X connect 41 0 29 0;
+#X connect 42 0 15 0;
+#X connect 43 0 15 0;
+#X connect 44 0 15 0;
+#X connect 45 0 42 0;
+#X connect 46 0 43 0;
+#X connect 47 0 44 0;
+#X connect 48 0 30 0;
+#X connect 49 0 6 0;
+#X connect 50 0 51 0;
+#X connect 51 0 15 0;
+#X restore 2013 900 pd sustain_check_FM;
+#X obj 395 168 sel 108;
+#X obj 458 194 sel 46;
+#X obj 512 174 sel 59;
+#X obj 568 193 sel 47;
+#X msg 1094 243 1108.7;
+#X msg 1141 270 1174.7;
+#X msg 1184 243 1244.5;
+#X msg 1223 270 1318.5;
+#X obj 1088 182 sel 76;
+#X obj 1141 211 sel 62;
+#X obj 1186 180 sel 58;
+#X obj 1237 209 sel 63;
+#X obj 428 220 bng 15 250 50 0 empty HC# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 474 251 bng 15 250 50 0 empty HD empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 530 220 bng 15 250 50 0 empty HD# empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 580 248 bng 15 250 50 0 empty HE empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 1904 170 bng 17 250 50 0 empty Crazy crazy\ settings 18 5 0
+10 #fcfcfc #000000 #000000;
+#X msg 1713 234 0.5;
+#X msg 1749 234 100;
+#X msg 1792 234 300;
+#X msg 1838 234 12;
+#X msg 1889 234 5000;
+#X msg 1943 234 4242;
+#X connect 0 0 36 1;
+#X connect 0 0 42 0;
+#X connect 0 0 88 0;
+#X connect 0 0 43 0;
+#X connect 0 0 106 0;
+#X connect 0 0 117 0;
+#X connect 1 0 102 0;
+#X connect 2 0 102 0;
+#X connect 3 0 102 0;
+#X connect 4 0 102 0;
+#X connect 5 0 102 0;
+#X connect 6 0 102 0;
+#X connect 7 0 102 0;
+#X connect 8 0 102 0;
+#X connect 9 0 102 0;
+#X connect 10 0 102 0;
+#X connect 11 0 102 0;
+#X connect 12 0 102 0;
+#X connect 13 0 102 0;
+#X connect 14 0 15 0;
+#X connect 14 0 53 0;
+#X connect 14 0 54 0;
+#X connect 14 0 55 0;
+#X connect 14 0 56 0;
+#X connect 14 0 57 0;
+#X connect 14 0 58 0;
+#X connect 14 0 59 0;
+#X connect 14 0 60 0;
+#X connect 14 0 61 0;
+#X connect 14 0 62 0;
+#X connect 14 0 63 0;
+#X connect 14 0 64 0;
+#X connect 14 0 65 0;
+#X connect 16 0 17 0;
+#X connect 16 0 66 0;
+#X connect 16 0 67 0;
+#X connect 16 0 68 0;
+#X connect 16 0 69 0;
+#X connect 16 0 70 0;
+#X connect 16 0 71 0;
+#X connect 16 0 72 0;
+#X connect 16 0 73 0;
+#X connect 16 0 74 0;
+#X connect 16 0 75 0;
+#X connect 16 0 76 0;
+#X connect 16 0 77 0;
+#X connect 16 0 78 0;
+#X connect 16 0 140 0;
+#X connect 16 0 141 0;
+#X connect 16 0 142 0;
+#X connect 16 0 143 0;
+#X connect 16 0 148 0;
+#X connect 16 0 151 0;
+#X connect 16 0 150 0;
+#X connect 16 0 149 0;
+#X connect 19 0 102 0;
+#X connect 20 0 102 0;
+#X connect 21 0 102 0;
+#X connect 22 0 102 0;
+#X connect 23 0 102 0;
+#X connect 24 0 102 0;
+#X connect 25 0 102 0;
+#X connect 26 0 102 0;
+#X connect 27 0 102 0;
+#X connect 28 0 102 0;
+#X connect 29 0 102 0;
+#X connect 30 0 102 0;
+#X connect 31 0 102 0;
+#X connect 33 0 35 1;
+#X connect 33 0 40 0;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 36 0 37 0;
+#X connect 37 0 38 0;
+#X connect 38 0 39 0;
+#X connect 38 0 39 1;
+#X connect 38 0 135 0;
+#X connect 43 0 34 0;
+#X connect 44 0 43 1;
+#X connect 44 0 41 0;
+#X connect 45 0 46 0;
+#X connect 45 0 47 1;
+#X connect 47 0 38 1;
+#X connect 48 0 47 3;
+#X connect 49 0 47 2;
+#X connect 49 0 51 0;
+#X connect 49 0 103 0;
+#X connect 50 0 47 4;
+#X connect 50 0 52 0;
+#X connect 53 0 1 0;
+#X connect 54 0 2 0;
+#X connect 55 0 3 0;
+#X connect 56 0 4 0;
+#X connect 57 0 5 0;
+#X connect 58 0 6 0;
+#X connect 59 0 7 0;
+#X connect 60 0 8 0;
+#X connect 61 0 13 0;
+#X connect 62 0 9 0;
+#X connect 63 0 10 0;
+#X connect 64 0 11 0;
+#X connect 65 0 12 0;
+#X connect 66 0 19 0;
+#X connect 67 0 20 0;
+#X connect 68 0 21 0;
+#X connect 69 0 22 0;
+#X connect 70 0 23 0;
+#X connect 71 0 24 0;
+#X connect 72 0 25 0;
+#X connect 73 0 26 0;
+#X connect 74 0 27 0;
+#X connect 75 0 28 0;
+#X connect 76 0 29 0;
+#X connect 77 0 30 0;
+#X connect 78 0 31 0;
+#X connect 79 0 43 1;
+#X connect 79 0 105 0;
+#X connect 83 0 107 0;
+#X connect 83 0 84 0;
+#X connect 83 0 86 0;
+#X connect 83 0 104 0;
+#X connect 83 0 85 0;
+#X connect 83 0 134 0;
+#X connect 83 0 136 0;
+#X connect 84 0 110 0;
+#X connect 85 0 108 0;
+#X connect 86 0 111 0;
+#X connect 87 0 107 0;
+#X connect 87 0 84 0;
+#X connect 87 0 86 0;
+#X connect 87 0 104 0;
+#X connect 87 0 85 0;
+#X connect 87 0 134 0;
+#X connect 87 0 136 0;
+#X connect 88 0 47 0;
+#X connect 89 0 1 0;
+#X connect 89 0 116 0;
+#X connect 90 0 2 0;
+#X connect 90 0 116 0;
+#X connect 91 0 3 0;
+#X connect 91 0 116 0;
+#X connect 92 0 4 0;
+#X connect 92 0 116 0;
+#X connect 93 0 5 0;
+#X connect 93 0 116 0;
+#X connect 94 0 6 0;
+#X connect 94 0 116 0;
+#X connect 95 0 7 0;
+#X connect 95 0 116 0;
+#X connect 96 0 8 0;
+#X connect 96 0 116 0;
+#X connect 97 0 13 0;
+#X connect 97 0 116 0;
+#X connect 98 0 9 0;
+#X connect 98 0 116 0;
+#X connect 99 0 10 0;
+#X connect 99 0 116 0;
+#X connect 100 0 11 0;
+#X connect 100 0 116 0;
+#X connect 101 0 12 0;
+#X connect 101 0 116 0;
+#X connect 102 0 43 0;
+#X connect 102 0 36 1;
+#X connect 102 0 88 0;
+#X connect 103 0 113 1;
+#X connect 104 0 112 0;
+#X connect 104 0 115 0;
+#X connect 107 0 109 0;
+#X connect 107 0 128 0;
+#X connect 113 0 116 1;
+#X connect 114 0 113 0;
+#X connect 116 0 48 0;
+#X connect 117 0 116 0;
+#X connect 119 0 120 0;
+#X connect 121 0 119 0;
+#X connect 122 0 109 0;
+#X connect 123 0 108 0;
+#X connect 124 0 110 0;
+#X connect 125 0 111 0;
+#X connect 126 0 115 0;
+#X connect 127 0 112 0;
+#X connect 129 0 128 0;
+#X connect 129 0 109 0;
+#X connect 136 0 138 0;
+#X connect 137 0 138 0;
+#X connect 138 0 135 0;
+#X connect 139 0 48 0;
+#X connect 140 0 20 0;
+#X connect 141 0 21 0;
+#X connect 142 0 22 0;
+#X connect 143 0 23 0;
+#X connect 144 0 102 0;
+#X connect 145 0 102 0;
+#X connect 146 0 102 0;
+#X connect 147 0 102 0;
+#X connect 148 0 144 0;
+#X connect 149 0 145 0;
+#X connect 150 0 146 0;
+#X connect 151 0 147 0;
+#X connect 152 0 116 0;
+#X connect 152 0 20 0;
+#X connect 153 0 116 0;
+#X connect 153 0 21 0;
+#X connect 154 0 116 0;
+#X connect 154 0 22 0;
+#X connect 155 0 116 0;
+#X connect 155 0 23 0;
+#X connect 156 0 157 0;
+#X connect 156 0 158 0;
+#X connect 156 0 159 0;
+#X connect 156 0 160 0;
+#X connect 156 0 161 0;
+#X connect 156 0 162 0;
+#X connect 157 0 110 0;
+#X connect 158 0 111 0;
+#X connect 159 0 115 0;
+#X connect 160 0 112 0;
+#X connect 161 0 108 0;
+#X connect 162 0 109 0;
+#X restore 1210 100 pd FM synth engine;
+#X obj 890 100 bng 60 250 50 0 Default empty Default\ settings -26
+-13 0 12 #919191 #000000 #000000;
+#X obj 1340 180 vsl 30 360 0 8000 0 0 ModAmp MODA Amplitude\ of\ the\ modulating\ oscillator->
+-292 33 0 12 #00fdff #000000 #000000 6731 1;
+#X floatatom 1340 550 5 0 0 0 - - -, f 5;
+#X floatatom 999 171 5 0 0 0 - - -, f 5;
+#X obj 999 141 hsl 366 30 0 8000 0 0 C:Mratioslider C:MODFREQ Carrier:modulating\ frequency\ ratio
+23 13 0 15 #0433ff #000000 #ffffff 5 1;
+#X obj 1410 140 vsl 30 400 0 1 0 0 CarrierAmp CAMP Amplitude 0 -9 0
+10 #00f900 #000000 #000000 19950 1;
+#X floatatom 1410 550 5 0 0 0 - - -, f 5;
+#X obj 1470 140 vsl 30 400 0 1000 0 0 Attack CAT Attack 0 -9 0 10 #ff40ff
+#000000 #000000 199 1;
+#X obj 1590 140 vsl 30 400 0 1000 0 0 Release CR Release 0 -9 0 10
+#ff9300 #000000 #000000 11970 1;
+#X floatatom 1470 550 5 0 0 0 - - -, f 5;
+#X floatatom 1590 550 5 0 0 0 - - -, f 5;
+#X obj 1000 210 vradio 15 0 0 20 C:Mratioradio C:MODFREQR <-Carrier:modulating\ frequency\ ratio\ presets
+15 290 0 12 #fffb00 #000000 #000000 1;
+#X floatatom 1000 510 5 0 0 0 - - -, f 5;
+#X obj 1017 840 bng 51 250 50 0 C empty z 16 22 0 30 #fcfcfc #000000
+#000000;
+#X obj 1086 840 bng 51 250 50 0 D empty x 16 22 0 30 #fcfcfc #000000
+#000000;
+#X obj 1155 840 bng 51 250 50 0 E empty c 16 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 1224 840 bng 51 250 50 0 F empty v 17 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 1293 840 bng 51 250 50 0 G empty b 17 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 1362 840 bng 51 250 50 0 A empty n 17 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 1431 840 bng 51 250 50 0 B empty m 16 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 1057 760 bng 51 250 50 0 C# empty s 16 18 0 30 #000000 #ffffff
+#ffffff;
+#X text 1057 740 C#;
+#X obj 1127 760 bng 51 250 50 0 D# empty d 16 21 0 30 #000000 #ffffff
+#ffffff;
+#X obj 1257 760 bng 51 250 50 0 F# empty g 16 18 0 30 #000000 #ffffff
+#ffffff;
+#X obj 1327 760 bng 51 250 50 0 G# empty h 16 20 0 30 #000000 #ffffff
+#ffffff;
+#X obj 1397 760 bng 51 250 50 0 A# empty j 16 18 0 30 #000000 #ffffff
+#ffffff;
+#X text 1017 821 C;
+#X text 1087 820 D;
+#X text 1157 820 E;
+#X text 1227 820 F;
+#X text 1297 820 G;
+#X text 1367 820 A;
+#X text 1437 820 B;
+#X text 1507 820 C;
+#X text 1127 740 D#;
+#X text 1257 740 F#;
+#X text 1327 740 G#;
+#X text 1397 740 A#;
+#X obj 88 840 bng 51 250 50 0 c empty q 16 22 0 30 #fcfcfc #000000
+#000000;
+#X obj 158 840 bng 51 250 50 0 d empty w 16 22 0 30 #fcfcfc #000000
+#000000;
+#X obj 228 840 bng 51 250 50 0 e empty e 16 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 298 840 bng 51 250 50 0 f empty r 17 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 368 840 bng 51 250 50 0 g empty t 17 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 438 840 bng 51 250 50 0 a empty y 17 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 508 840 bng 51 250 50 0 b empty u 16 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 578 840 bng 51 250 50 0 hc empty i 15 19 0 30 #fcfcfc #000000
+#000000;
+#X obj 128 760 bng 51 250 50 0 c# empty 2 16 18 0 30 #000000 #ffffff
+#ffffff;
+#X text 128 740 C#;
+#X obj 198 760 bng 51 250 50 0 d# empty 3 16 21 0 30 #000000 #ffffff
+#ffffff;
+#X obj 328 760 bng 51 250 50 0 f# empty 5 16 18 0 30 #000000 #ffffff
+#ffffff;
+#X obj 398 760 bng 51 250 50 0 g# empty 6 16 20 0 30 #000000 #ffffff
+#ffffff;
+#X obj 468 760 bng 51 250 50 0 a# empty 7 16 18 0 30 #000000 #ffffff
+#ffffff;
+#X text 88 820 C;
+#X text 158 820 D;
+#X text 228 820 E;
+#X text 298 820 F;
+#X text 368 820 G;
+#X text 438 820 A;
+#X text 508 820 B;
+#X text 578 820 C;
+#X text 198 740 D#;
+#X text 328 740 F#;
+#X text 398 740 G#;
+#X text 468 740 A#;
+#X obj 1530 140 vsl 30 400 0 2000 0 0 Sustain CSUS Sustain\ time -19
+-10 0 10 #942192 #000000 #000000 5985 1;
+#X floatatom 1530 550 5 0 0 0 - - -, f 5;
+#X obj 528 157 vsl 30 200 50 1000 1 0 LowPass LP LopCutOff\ frequency\ (50-1000\ LOG)
+-65 -13 0 10 #fffb00 #000000 #000000 15296 1;
+#X obj 109 929 hsl 640 50 16.35 2093 1 0 PitchSUB PSUB Pitch\ slider\ (16.35-2093Hz)
+160 22 0 20 #aa7942 #000000 #000000 35754 1;
+#X obj 660 140 vsl 30 400 0 1 0 0 CarrierAmpSUB CAMPSUB Amplitude 0
+-9 0 10 #00f900 #000000 #000000 39900 1;
+#X obj 720 140 vsl 30 400 0 1000 0 0 AttackSUB CATSUB Attack 0 -9 0
+10 #ff40ff #000000 #000000 3990 1;
+#X obj 840 140 vsl 30 400 0 1000 0 0 ReleaseSUB CRSUB Release 0 -9
+0 10 #ff9300 #000000 #000000 11970 1;
+#X obj 99 154 vsl 30 200 10 5000 1 0 HighPass HP HipCutOff\ frequency\ (10-5000LOG)
+-76 -10 0 10 #fcfcfc #000000 #000000 7373 1;
+#X obj 58 463 vsl 30 200 0.1 0.99 0 0 MODSquareWave MODSW Pulse\ width\ modulation
+2 -13 0 10 #ff2600 #000000 #000000 8944 1;
+#X obj 463 526 vradio 15 0 1 9 BeatRadioSUB BSUBR empty 0 -8 0 10 #0433ff
+#000000 #000000 0;
+#X obj 780 140 vsl 30 400 0 2000 0 0 SustainSUB CSUSSUB Sustain\ time
+-20 -9 0 10 #942192 #000000 #000000 5985 1;
+#X text 88 643 <-Down for larger square wave pulses;
+#X text 460 80 Subractive patch default settings are a woodwind synth->
+;
+#X text 990 80 <-FM default settings are a synth brass;
+#X obj 89 601 bng 40 250 50 0 ToggleSquare empty <-Default\ square\ wave
+41 19 0 11 #ff2600 #000000 #000000;
+#X floatatom 58 673 5 0 0 0 - - -, f 5;
+#X floatatom 423 676 5 0 0 0 - - -, f 5;
+#X floatatom 99 363 5 0 0 0 - - -, f 5;
+#X floatatom 528 366 5 0 0 0 - - -, f 5;
+#X floatatom 660 550 5 0 0 0 - - -, f 5;
+#X floatatom 720 550 5 0 0 0 - - -, f 5;
+#X floatatom 780 550 5 0 0 0 - - -, f 5;
+#X floatatom 840 550 5 0 0 0 - - -, f 5;
+#X obj 423 456 vsl 30 200 0 50 0 0 BeatSUB BSUB Beat\ frequencies\ (with\ pre-sets)
+-26 -9 0 10 #0433ff #000000 #000000 0 1;
+#X obj 890 520 bng 60 250 50 0 startdemo empty ^PLAY^DEMO^ -20 69 0
+16 #11b90b #ff9300 #00be00;
+#X obj 890 750 bng 60 250 50 0 stopdemo empty ^STOP^DEMO^ -20 69 0
+16 #ff2600 #ff9300 #ff0000;
+#X text 89 458 <-Up for smaller square wave pulses;
+#X obj 720 600 cnv 15 422 139 empty empty empty 20 12 0 14 #00fd57
+#404040 0;
+#X text 720 600 Use the Keys on your keyboard specified below to play
+a note that will sustain for as long as you hold the key. The piano
+style layout of the software keys below have the concert pitch produced
+above each key. To play up one octave \, press and hold shift and the
+key.;
+#X obj 890 830 bng 60 250 50 0 demonotes empty ^DEMO^NOTES^ONLY^ -55
+69 0 16 #0096ff #ff9300 #0096ff;
+#N canvas 1913 22 638 952 Sub_oscope 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-Sub_oscope 1192 float 4 black black;
+#X coords 0 0.7 1191 -0.7 200 100 1;
+#X restore 272 394 graph;
+#X msg 270 540 resize \$1;
+#X obj 272 495 hsl 195 20 44 4400 1 0 empty empty SCALE 6 9 0 10 #1c01fe
+#09f02e #05f622 13900 1;
+#X obj 269 580 s \$0-Sub_oscope;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X coords 0 -1 1 1 201 125 2 271 392;
+#X restore 507 607 pd Sub_oscope;
+#N canvas 1913 22 638 952 FM_oscope 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-FM_oscope 4400 float 4 black black;
+#X coords 0 0.7 4399 -0.7 200 100 1;
+#X restore 270 390 graph;
+#X msg 270 540 resize \$1;
+#X obj 270 580 s \$0-FM_oscope;
+#X obj 271 492 hsl 195 20 44 4400 1 0 empty empty SCALE 7 9 0 10 #1c01fe
+#09f02e #05f622 0 1;
+#X connect 1 0 2 0;
+#X connect 3 0 1 0;
+#X coords 0 0 1 1 201 125 2 270 388;
+#X restore 1155 607 pd FM_oscope;
+#X obj 648 839 bng 51 250 50 0 hd empty o 16 22 0 30 #fcfcfc #000000
+#000000;
+#X obj 718 839 bng 51 250 50 0 he empty p 16 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 618 759 bng 51 250 50 0 hc# empty 9 16 18 0 30 #000000 #ffffff
+#ffffff;
+#X text 618 739 C#;
+#X obj 688 759 bng 51 250 50 0 hd# empty 0 16 21 0 30 #000000 #ffffff
+#ffffff;
+#X text 648 819 D;
+#X text 718 819 E;
+#X text 688 739 D#;
+#X obj 1569 840 bng 51 250 50 0 HD empty . 16 22 0 30 #fcfcfc #000000
+#000000;
+#X obj 1547 760 bng 51 250 50 0 HC# empty l 16 18 0 30 #000000 #ffffff
+#ffffff;
+#X text 1547 740 C#;
+#X text 1577 820 D;
+#X text 1647 820 E;
+#X text 1617 740 D#;
+#X obj 1635 100 cnv 15 98 900 empty empty empty 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 1638 840 bng 51 250 50 0 HE empty / 16 21 0 30 #fcfcfc #000000
+#000000;
+#X obj 1015 929 hsl 640 50 16.35 2093 0 0 Pitch P Pitch\ slider\ (16.35-2093Hz)
+197 22 0 20 #aa7942 #000000 #000000 15598 1;
+#X obj 1500 840 bng 51 250 50 0 HC empty comma 2 22 0 15 #fcfcfc #000000
+#000000;
+#X obj 1617 760 bng 51 250 50 0 HD# empty colon 3 22 0 15 #000000 #fcfcfc
+#fcfcfc;
+#X text 1637 821 E;
+#X obj 93 514 tgl 50 0 pwm_toggle PWM_TOG LFO 1 23 0 15 #ff0000 #000000
+#00fc00 0 1;
+#X obj 135 525 hsl 234 30 0.01 0.49 0 0 pwm_depth PWM_DEPTH Depth 54
+14 0 20 #eb9ac4 #000000 #00f600 0 1;
+#X obj 93 565 hsl 267 30 1 500 0 0 pwm_resolution PWM_RES LARGE<---Resolution--->SMALL
+15 13 0 15 #eb9ac4 #000000 #00f600 0 1;
+#X obj 190 280 tgl 50 0 noise_lfo_toggle NOISE_TOG LFO 1 23 0 15 #000000
+#fcfcfc #f4b68d 0 1;
+#X obj 190 249 hsl 267 30 0.03 30000 1 0 noise_lfo_freq NOISE_FREQ
+Frequency 85 12 0 20 #ebb893 #000000 #000000 0 1;
+#X obj 93 399 hsl 363 30 0.03 30000 1 0 unity_lfo_freq UNITY_FREQ Noise\ and\ pwm\ LFO\ sync
+41 13 0 17 #000000 #ff2600 #ff2600 0 1;
+#X text 720 690 Alternativley \, toggle each note using the software
+keyboard below: it will sustain as long as the setting on the purple
+"Sustain time" slider.;
+#X obj 190 330 hsl 267 30 1 500 1 0 noise_lfo_resolution NOISE_RES
+LARGE<---Resolution--->SMALL 7 14 0 15 #ebb893 #000000 #000000 0 1
+;
+#X obj 233 290 hsl 234 30 0.01 0.49 0 0 noise_lfo_depth NOISE_DEPTH
+Depth 44 13 0 20 #ebb893 #000000 #000000 0 1;
+#X obj 189 163 hsl 267 30 0.01 1 1 0 noise_mix NOISE_MIX Noise\ mix\ level
+11 13 0 20 #ebb893 #ffffff #fcfcfc 0 1;
+#X obj 189 195 hsl 267 30 100 9000 1 0 noise_lop_cutoff NOISE_CUTOFF
+Noise\ low\ pass\ cutoff 10 13 0 20 #ebb893 #ffffff #fcfcfc 0 1;
+#X obj 93 483 hsl 267 30 0.03 30000 1 0 pwm_freq PWM_FREQ Frequency
+93 12 0 20 #eb9ac4 #000000 #00f600 0 1;
+#X floatatom 461 163 5 0 0 0 - noise_mix -, f 5;
+#X floatatom 461 195 5 0 0 0 - noise_lop_cutoff -, f 5;
+#X floatatom 463 249 5 0 0 0 - noise_lfo_freq -, f 5;
+#X floatatom 473 290 5 0 0 0 - noise_lfo_depth -, f 5;
+#X floatatom 463 330 5 0 0 0 - noise_lfo_resolution -, f 5;
+#X floatatom 462 399 5 0 0 0 - unity_lfo_freq -, f 5;
+#X floatatom 366 483 5 0 0 0 - pwm_freq -, f 5;
+#X floatatom 375 525 5 0 0 0 - pwm_depth -, f 5;
+#X floatatom 366 565 5 0 0 0 - pwm_resolution -, f 5;
+#X obj 890 205 bng 60 250 50 0 Crazy empty Crazy\ settings -16 68 0
+12 #ffffff #000000 #000000;
+#X text 136 294 on/off>;
+#X connect 6 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 12 0 14 0;
+#X connect 13 0 15 0;
+#X connect 16 0 17 0;
+#X connect 69 0 70 0;
+#X connect 71 0 87 0;
+#X connect 73 0 88 0;
+#X connect 74 0 89 0;
+#X connect 75 0 91 0;
+#X connect 76 0 86 0;
+#X connect 77 0 84 0;
+#X connect 78 0 85 0;
+#X connect 79 0 90 0;
+#X connect 92 0 85 0;
